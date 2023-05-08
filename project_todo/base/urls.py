@@ -5,10 +5,11 @@ from .views import Tasklist, TaskDetail, TaskCreate, TaskUpdate, TaskDelete, Cus
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
+    path('register/',RegisterPage.as_view(),name='register'),
     path('',views.index,name='index'),
     path('login/',CustomLogin.as_view(),name='login'),
     path('logout/',LogoutView.as_view(next_page='login'),name='logout'),
-path('register/',RegisterPage.as_view(),name='register'),
+
     path('tasklist/',Tasklist.as_view(),name="task"),
     path('taskdetail/<int:pk>/',TaskDetail.as_view(),name="taskdetail"),
     path('taskcreate/', TaskCreate.as_view(), name="taskcreate"),
